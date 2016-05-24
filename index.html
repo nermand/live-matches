@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Unibet Front-end test - Live matches</title>
+        <link href="css/angular-carousel.min.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/live-matches.css">
+        <link rel="stylesheet" href="css/spinner.css">
+        <link rel="stylesheet" href="css/angular-toastr.css">
+        <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto">
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <div id="logo">Unibet</div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="instructions/index.html">Test instructions</a></li>
+                </ul>
+            </nav>
+            <div id="content">
+                <article>
+                    <h1>Live matches</h1>
+                    <p class="preamble">
+                        Here is a list of matches that are live right now.
+                    </p>
+                    <aside>
+                        <h2>Live betting</h2>
+                        <p>Place your bets as the action unfolds. We offer a wide selection of live betting events and you can place both single and combination bets.</p>
+                        <p>You will be able to see an in-play scoreboard with the current result and match stats, while on selected events you will also be able to watch the action live with Unibet TV on the desktop site.</p>
+                    </aside>
+                    
+                    <div id="live-matches"
+                        ng-app="liveMatchesApp"
+                        ng-controller="LiveMatchesController as live">
+                            <div ng-hide="live.liveMatches.length > 0" class="live-matches-spinner">
+                                <ub-spinner></ub-spinner>    
+                            </div>                            
+                            <ub-live-events-carousel events='live.liveMatches'></ub-live-events-carousel>
+                    </div>
+
+                </article>
+            </div>
+            <footer>
+                <div class="inner">
+                    <p>&copy; 1997-2015, Unibet. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+
+        <!-- libs -->
+        <script src="js/libs/angular.min.js"></script>
+        <script src="js/libs/angular-touch.min.js"></script>
+        <script src="js/libs/angular-animate.min.js"></script>
+        <script src="js/libs/ngStorage.min.js"></script>
+        <script src="js/libs/angular-carousel.min.js"></script>
+        <script src="js/libs/angular-toastr.tpls.js"></script>
+      
+        <!-- scripts -->
+        <script src="js/app/index.module.js"></script>   
+        <script src="js/app/index.constants.js"></script>  
+        
+        <script src="js/app/common/services/cache.service.js"></script>   
+        <script src="js/app/common/services/helper.service.js"></script>  
+
+        <script src="js/app/common/filters/date.filter.js"></script>   
+
+        <script src="js/app/liveMatches/liveMatches.controller.js"></script>   
+        <script src="js/app/liveMatches/liveMatches.service.js"></script> 
+
+        <script src="js/app/components/liveEventsCarousel/liveEventsCarousel.directive.js"></script>   
+        <script src="js/app/components/spinner/spinner.directive.js"></script>   
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<ul rn-carousel class="image"
+    rn-carousel-auto-slide
+    rn-carousel-buffered
+    rn-carousel-duration="500">
+  <li ng-repeat="event in lec.events">
+    <div class="event-container">
+        <div class="event-score">
+            <div ng-show="event.homeTeamScore">{{ event.homeTeamScore }} - {{ event.awayTeamScore }}
+            </div>
+        </div>
+        <div class="event-teams">
+            <span ng-style="{'background-image':'url(../images/icons/{{event.sportType}}.png)'}"
+                class="icon">
+                    {{ event.homeTeamName }}<span ng-show="event.awayTeamName"> - {{ event.awayTeamName }}</span>
+            </span>
+        </div>
+        <div class="event-start">{{ event.start | datetime}}</div>
+        <div class="event-button-bet">
+            <a class="btn" target="_blank"
+                ng-href="https://www.unibet.com/betting#/event/live/{{event.id}}">
+                Place a bet
+            </a>
+        </div>
+    </div>
+  </li>
+</ul>

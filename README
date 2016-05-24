@@ -1,0 +1,13 @@
+## Instructions
+
+In order to have fully working solution, there should be a web server running this application, with index.html as starting point. 
+I have used Angular to complete this assignment, and in order to resolve CORS issues encountered when running app from file system (file://), app web server should host the app. 
+Any web server will do, I used node's http-server, as a simplest, and quickest solution.
+
+Again, due to CORS issues, I have used jsonp while communicating with an API, but as Angular uses $http service to load templates as well, running web server was needed after all.
+
+All dependencies/ libs are hosted locally, and even API's response is contained in the data/evens.json file, to remove need for live connection, in case that is needed. To enable offline mode, a flag isOfflineMode in the index.constants.js file should be set to 'true'.
+
+It wasn't asked as a requirement, so I didn't implement it, but what would be more appropriate and is considered as the best practice is to reference assets directly from CDN, or have bower to resolve all dependencies.
+
+Lastly, even though there is no grunt/ gulp tasks implemented for minification and obfuscation, all code comes prepared for it and is already min-safe.
